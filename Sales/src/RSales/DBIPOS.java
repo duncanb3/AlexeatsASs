@@ -1,3 +1,5 @@
+package RSales;
+
 /**
  * This class creates the graphical user interface
  * for the Dan'l Boone Inn Point of Sale system.
@@ -5,9 +7,10 @@
  * Author: Alexander Steinbacher
  * Last modified 23 June 2016
  * 
+ * why wont this shit work
+ * this shit should work why is it not
  * 
- * random comment
- * to see if the github shit works
+ * just to see if this shit works
  */
 import java.text.DecimalFormat;
 import javafx.application.Application;
