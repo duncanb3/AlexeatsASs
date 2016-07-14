@@ -652,7 +652,7 @@ public class DBIPOS extends Application{
 		createParty.setDisable(true);
 		
 		Party[] party = new Party[1000];
-		CheckBox[] radio = new CheckBox[1000];
+		//CheckBox[] radio = new CheckBox[1000];
 		int id = 0;
 		
 		//create party button
@@ -664,8 +664,12 @@ public class DBIPOS extends Application{
 			party[id].customerCount = Integer.parseInt(partySize.getText());
 			party[id] = new Party(Party.tableName, Party.customerCount, Double.parseDouble(partyPrice.getText()),
 					Party.adult, Party.c911, Party.c68, Party.c45, Party.c03, false, false, Party.identifier);
-			radio[id] = new CheckBox(party[id].tableName);
-			tabsPane.getChildren().add(radio[id]);
+			//radio[id] = new CheckBox(party[id].tableName);
+			Button btn = new Button(party[id].tableName);
+			btn.setOnAction((event2 -> {
+				System.out.println("hello button works!");
+			}));
+			tabsPane.getChildren().add(btn);
 			partyName.clear();
 			partySize.clear();
 			partyPrice.setText("0");
@@ -733,7 +737,8 @@ public class DBIPOS extends Application{
 		
 		
 		//Table info button
-				tableInfoButton.setOnAction((event -> {
+		/*
+		 * tableInfoButton.setOnAction((event -> {
 					for (int j = 0; j < radio.length; j++) {
 						if(radio[j].isSelected() == true){
 							party[j].selected = true;
@@ -751,6 +756,8 @@ public class DBIPOS extends Application{
 					}
 						primaryStage.setScene(tableInfoScene);
 				}));
+		 */
+				
 				
 				TableButton saveChangesTableInfo = new TableButton(50, 150, "Done");
 				saveChangesTableInfo.setLayoutX(10);
@@ -769,7 +776,7 @@ public class DBIPOS extends Application{
 									party[j].c45, party[j].c68, 
 									party[j].c911, party[j].adult);
 							party[j].selected = false;
-							radio[j].setSelected(false);
+							//radio[j].setSelected(false);
 							primaryStage.setScene(lineScene);
 							break;
 						}
@@ -781,7 +788,8 @@ public class DBIPOS extends Application{
 		selectATable.setX(5);
 		selectATable.setY(700);
 		
-		Button transferTable = new Button("Transfer");
+		/*
+		 * Button transferTable = new Button("Transfer");
 		transferTable.setPrefSize(150, 50);
 		transferTable.setOnAction((event -> {
 			for (Party.j = 0; Party.j <radio.length; Party.j++) {
@@ -796,6 +804,7 @@ public class DBIPOS extends Application{
 				}
 			}
 		}));
+		 */
 		
 		//create new party back button
 		createPartyBack.setPrefSize(150, 50);
@@ -856,7 +865,8 @@ public class DBIPOS extends Application{
  * ------------------------------------------------------------------------------------
  */
 		
-		p1.setOnAction((event -> {
+		/*
+		 * p1.setOnAction((event -> {
 			for (Party.j = 0; Party.j < radio.length; Party.j++) {
 				if(radio[Party.j].isSelected() == true){
 					p1.setText(radio[Party.j].getText());
@@ -1007,6 +1017,7 @@ public class DBIPOS extends Application{
 				}
 			}
 		}));
+		 */
 		
 /*
  * ----------------------------------------------------------------------------
@@ -1039,7 +1050,7 @@ public class DBIPOS extends Application{
 				tableSizeChangeText, nAdultsTextChange, nC911TextChange, nC68TextChange,
 				nC45TextChange, nC03TextChange, saveChangesTableInfo);
 		
-		inLineMainPane.getChildren().addAll(lineNewParty,transferTable, tableInfoButton, lineSceneBack,
+		inLineMainPane.getChildren().addAll(lineNewParty, tableInfoButton, lineSceneBack,
 				selectATable);
 		
 		newPartyPane.getChildren().addAll(createParty, createPartyBack, partyNameText, partySizeText,
